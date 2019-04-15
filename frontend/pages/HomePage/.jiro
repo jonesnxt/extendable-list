@@ -1,0 +1,43 @@
+{
+  "page": {
+    "name": "Home Page",
+    "route": "/",
+    "config": {
+      "backgroundColor": "#2d0142",
+      "foregroundColor": "#ffffff",
+      "headerText": "Grocery list",
+      "placeholder": "Add an item..."
+    },
+    "configEditor": [
+      {
+        "section": "Labels",
+        "props": [
+          {
+            "key": "headerText",
+            "name": "List title"
+          },
+          {
+            "key": "placeholder",
+            "name": "Add new placeholder text",
+            "description": "The placeholder text when adding a new item to the list"
+          }
+        ]
+      },
+      {
+        "section": "Style",
+        "props": [
+          {
+            "key": "backgroundColor",
+            "name": "Background color",
+            "type": "color"
+          },
+          {
+            "key": "foregroundColor",
+            "name": "Foreground color",
+            "type": "color"
+          }
+        ]
+      }
+    ]
+  }
+}

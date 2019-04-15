@@ -1,0 +1,12 @@
+{
+  "route": {
+    "name": "ListItems",
+    "route": "/list",
+    "method": "GET",
+
+    "accepts": {},
+    "returns": {
+      "items": "array"
+    }
+  }
+}

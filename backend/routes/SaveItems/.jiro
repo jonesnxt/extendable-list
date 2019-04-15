@@ -1,0 +1,12 @@
+{
+  "route": {
+    "name": "SaveItems",
+    "route": "/saveItems",
+    "method": "POST",
+
+    "accepts": {
+      "items": "array"
+    },
+    "returns": {}
+  }
+}
