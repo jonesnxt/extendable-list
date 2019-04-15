@@ -1,0 +1,9 @@
+{
+  "routes": [{
+    "name": "SaveItems",
+    "path": "backend/routes/SaveItems",
+    "route": "/items/save",
+    "method": "POST",
+    "isProtected": false
+  }]
+}

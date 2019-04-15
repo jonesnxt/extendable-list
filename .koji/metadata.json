@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "Gem Match",
-    "description": "An easily extendable matching game. Customize it to be whatever you want with Koji.",
-    "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/0283d382-0feb-4d6b-86f6-69ec2817d857/dc9v7iu-3677d383-767e-48e7-b3cc-6f1b7f8ad609.png",
-    "icon": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/0283d382-0feb-4d6b-86f6-69ec2817d857/dc2fouk-ed449fbb-8fd5-49d9-9ea3-e445fea08148.png/v1/fill/w_894,h_894,strp/bejeweled_orange_gem_by_ldinos_dc2fouk-pre.png",
+    "title": "Todo List",
+    "description": "Basic list with persistent data storage in a remote database",
+    "image": "https://i.imgur.com/3wVp7zc.png",
+    "icon": "https://images.koji-cdn.com/c1ae93e2-7119-4ae4-a730-2533d1f8a995/list.png",
     "gaCode": ""
   },
   "@@editor": [

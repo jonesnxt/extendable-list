@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import GlobalContext from 'GlobalContext';
+
 // Container, title, and "Nothing on your list..." text
 import Container from './components/Container';
 import Title from './components/Title';
@@ -15,7 +17,7 @@ import DeleteButton from './components/DeleteButton';
 import NewItemInput from './components/NewItemInput';
 
 // Build the page
-export default class TestPage extends React.Component {
+class TestPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +26,8 @@ export default class TestPage extends React.Component {
     }
 
     componentDidMount() {
-        window.fetch(this.props.backend.ListItems, {
+        console.log(this.context);
+        window.fetch(this.context.backend.ListItems , {
             method: 'get',
             headers: {
                 Accept: 'application/json',
@@ -39,8 +42,8 @@ export default class TestPage extends React.Component {
 
 	render() {
 		return (
-			<Container backgroundColor={this.props.backgroundColor} color={this.props.foregroundColor}>
-		        <Title>{this.props.headerText}</Title>
+			<Container backgroundColor={this.context.style.backgroundColor} color={this.context.style.foregroundColor}>
+		        <Title>{this.context.general.headerText}</Title>
                 {this.state.items.length === 0 && <NoContent>Nothing on your list...</NoContent>}
                 <List>
                     {this.state.items.map((item, i) => (
@@ -51,7 +54,7 @@ export default class TestPage extends React.Component {
                     ))}
                 </List>
                 <NewItemInput
-                    placeholder={this.props.placeholder}
+                    placeholder={this.context.general.placeholder}
                     onAddItem={(newItem) => this.addItem(newItem)}
                 />
 		  </Container>
@@ -74,7 +77,7 @@ export default class TestPage extends React.Component {
     }
 
     updateDatabase() {
-        window.fetch(this.props.backend.SaveItems, {
+        window.fetch(this.context.backend.SaveItems, {
             method: 'post',
             headers: {
                 Accept: 'application/json', 
@@ -87,3 +90,6 @@ export default class TestPage extends React.Component {
     }
 }
 
+TestPage.contextType = GlobalContext;
+
+export default TestPage;

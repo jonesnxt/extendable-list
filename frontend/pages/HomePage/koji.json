@@ -1,0 +1,7 @@
+{
+	"pages": [{
+		"name": "Todo List",
+        "route": "/",
+        "path": "frontend/pages/HomePage"
+	}]
+}

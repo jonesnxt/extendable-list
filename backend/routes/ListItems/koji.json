@@ -1,0 +1,9 @@
+{
+  "routes": [{
+    "name": "ListItems",
+    "path": "backend/routes/ListItems",
+    "route": "/items/list",
+    "method": "GET",
+    "isProtected": false
+  }]
+}
