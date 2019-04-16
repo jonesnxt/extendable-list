@@ -1,4 +1,4 @@
-![Todo List](https://i.imgur.com/3wVp7zc.png)
+# Todo List
 
 *A very basic list that you can add and remove items from.*
 
