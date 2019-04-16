@@ -15,7 +15,6 @@ const { koji } = process.env;
 const Wrapper = styled.div`
     margin: 0 auto;
     width: 100vw;
-    min-height: 100vh;
 `;
 
 class App extends React.Component {

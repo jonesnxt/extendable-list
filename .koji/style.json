@@ -1,8 +1,8 @@
 {
   "style": {
-    "backgroundColor": "#2d0142",
+    "backgroundColor": "#b56fd5",
     "foregroundColor": "#ffffff",
-    "textColor": "#000000"
+    "textColor": "#ffffff"
   },
   "@@editor": [
     {
@@ -12,19 +12,14 @@
       "source": "style.json",
       "fields": [
         {
-            "key": "foregroundColor",
-            "name": "Foreground Color",
-            "type": "color"
+          "key": "backgroundColor",
+          "name": "Background color",
+          "type": "color"
         },
         {
-            "key": "backgroundColor",
-            "name": "Background color",
-            "type": "color"
-        },
-        {
-            "key": "textColor",
-            "name": "Text Color",
-            "type": "color"
+          "key": "textColor",
+          "name": "Text Color",
+          "type": "color"
         }
       ]
     }

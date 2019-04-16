@@ -3,15 +3,14 @@ import styled from 'styled-components';
 
 const Input = styled.input`
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   font-size: 16px;
   border: none;
-  border-top: 1px solid black;
-  padding: 12px 8px;
+  background-color: transparent;
+  color: ${({ theme }) => theme.style.textColor};
+  border-bottom: 1px solid ${({ theme }) => theme.style.textColor};
   &:focus {
       outline: none;
+      border-bottom: 2px solid ${({ theme }) => theme.style.textColor};
   }
 `;
 

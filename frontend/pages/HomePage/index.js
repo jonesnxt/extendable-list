@@ -26,8 +26,9 @@ class TestPage extends React.Component {
     }
 
     componentDidMount() {
+        console.log(window.innerHeight, window.outerHeight);
         console.log(this.context);
-        window.fetch(this.context.backend.ListItems , {
+        window.fetch(this.context.backend.ListItems, {
             method: 'get',
             headers: {
                 Accept: 'application/json',
@@ -42,7 +43,7 @@ class TestPage extends React.Component {
 
 	render() {
 		return (
-			<Container backgroundColor={this.context.style.backgroundColor} color={this.context.style.foregroundColor}>
+			<Container>
 		        <Title>{this.context.general.headerText}</Title>
                 {this.state.items.length === 0 && <NoContent>Nothing on your list...</NoContent>}
                 <List>
@@ -52,11 +53,13 @@ class TestPage extends React.Component {
                             <DeleteButton onClick={() => this.deleteItem(i)}>❌</DeleteButton>
                         </ListItem>
                     ))}
+                    <ListItem>
+                        <NewItemInput
+                            placeholder={this.context.general.placeholder}
+                            onAddItem={(newItem) => this.addItem(newItem)}
+                        />
+                    </ListItem>
                 </List>
-                <NewItemInput
-                    placeholder={this.context.general.placeholder}
-                    onAddItem={(newItem) => this.addItem(newItem)}
-                />
 		  </Container>
 		);
 	}
