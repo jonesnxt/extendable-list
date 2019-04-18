@@ -1,6 +1,7 @@
 {
   "general": {
-    "headerText": "Extendable List"
+    "headerText": "Extendable List",
+    "description": "This is where a description goes"
   },
   "@@editor": [
     {
@@ -12,6 +13,10 @@
         {
           "key": "headerText",
           "name": "Header Text"
+        },
+        {
+          "key": "description",
+          "name": "Description"
         }
       ]
     }

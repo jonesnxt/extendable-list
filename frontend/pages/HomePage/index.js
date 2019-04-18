@@ -7,6 +7,7 @@ import GlobalContext from 'GlobalContext';
 import Container from './components/Container';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
+import Description from './components/Description';
 import NoContent from './components/NoContentLabel';
 
 // List components
@@ -44,6 +45,8 @@ class TestPage extends React.Component {
     }
 
     submitForm() {
+        // add our form data to the items list,
+        // then reset the form data to empty
         this.addItem(this.state.form);
         this.setState({ form: {} });
     }
@@ -53,17 +56,20 @@ class TestPage extends React.Component {
             <Wrapper>
                 <Container>
                     <Title>{this.context.general.headerText}</Title>
+                    <Description>{this.context.general.description}</Description>
                     <FormArea>
                         {/* Put you form elements below */}
                         <TextInput
-                            placeholder="Item 1"
-                            value={this.state.form.item1 || ''}
-                            onChange={(e) => this.setState({ form: { ...this.state.form, item1: e.target.value } })}
+                            name="Item 1"
+                            isClear={Object.keys(this.state.form).length === 0}
+                            onChange={(v) => this.setState((oldState) => { form: oldState.form[v.name] = v.value })}
+                            onSubmit={() => this.submitForm()}
                         />
                         <TextInput
-                            placeholder="Item 2"
-                            value={this.state.form.item2 || ''}
-                            onChange={(e) => this.setState({ form: { ...this.state.form, item2: e.target.value } })}
+                            name="Item 2"
+                            isClear={Object.keys(this.state.form).length === 0}
+                            onChange={(v) => this.setState((oldState) => { form: oldState.form[v.name] = v.value })}
+                            onSubmit={() => this.submitForm()}
                         />
                         <Button onClick={() => this.submitForm()}>Submit</Button>
                     </FormArea>
@@ -87,7 +93,7 @@ class TestPage extends React.Component {
 	}
 
     addItem(newItem) {
-        // Add locally
+        // Add locally, then push to db
         console.log(`Adding item "${newItem}"`);
         const items = this.state.items;
         items.push(newItem);
