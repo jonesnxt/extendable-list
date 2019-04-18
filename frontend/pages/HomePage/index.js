@@ -5,6 +5,7 @@ import GlobalContext from 'GlobalContext';
 
 // Container, title, and "Nothing on your list..." text
 import Container from './components/Container';
+import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import NoContent from './components/NoContentLabel';
 
@@ -13,8 +14,10 @@ import List from './components/List';
 import ListItem from './components/ListItem';
 import DeleteButton from './components/DeleteButton';
 
-// "Add item" text box
-import NewItemInput from './components/NewItemInput';
+// form components
+import TextInput from './components/TextInput';
+import FormArea from './components/FormArea';
+import Button from './components/Button';
 
 // Build the page
 class TestPage extends React.Component {
@@ -22,12 +25,11 @@ class TestPage extends React.Component {
         super(props);
         this.state = {
             items: [],
+            form: {},
         };
     }
 
     componentDidMount() {
-        console.log(window.innerHeight, window.outerHeight);
-        console.log(this.context);
         window.fetch(this.context.backend.ListItems, {
             method: 'get',
             headers: {
@@ -41,26 +43,46 @@ class TestPage extends React.Component {
         });
     }
 
+    submitForm() {
+        this.addItem(this.state.form);
+        this.setState({ form: {} });
+    }
+
 	render() {
 		return (
-			<Container>
-		        <Title>{this.context.general.headerText}</Title>
-                {this.state.items.length === 0 && <NoContent>Nothing on your list...</NoContent>}
-                <List>
-                    {this.state.items.map((item, i) => (
-                        <ListItem key={i}>
-                            {item}
-                            <DeleteButton onClick={() => this.deleteItem(i)}>❌</DeleteButton>
-                        </ListItem>
-                    ))}
-                    <ListItem>
-                        <NewItemInput
-                            placeholder={this.context.general.placeholder}
-                            onAddItem={(newItem) => this.addItem(newItem)}
+            <Wrapper>
+                <Container>
+                    <Title>{this.context.general.headerText}</Title>
+                    <FormArea>
+                        {/* Put you form elements below */}
+                        <TextInput
+                            placeholder="Item 1"
+                            value={this.state.form.item1 || ''}
+                            onChange={(e) => this.setState({ form: { ...this.state.form, item1: e.target.value } })}
                         />
-                    </ListItem>
-                </List>
-		  </Container>
+                        <TextInput
+                            placeholder="Item 2"
+                            value={this.state.form.item2 || ''}
+                            onChange={(e) => this.setState({ form: { ...this.state.form, item2: e.target.value } })}
+                        />
+                        <Button onClick={() => this.submitForm()}>Submit</Button>
+                    </FormArea>
+
+                    {this.state.items.length === 0 && <NoContent>Nothing on your list...</NoContent>}
+                    <List>
+                        {this.state.items.map((item, i) => (
+                            <ListItem key={i}>
+                                <div>
+                                    {Object.entries(item).map(([key, val]) => (
+                                        <div><strong>{key}:</strong> {val}</div>
+                                    ))}
+                                </div>
+                                <DeleteButton onClick={() => this.deleteItem(i)}>❌</DeleteButton>
+                            </ListItem>
+                        ))}
+                    </List>
+            </Container>
+          </Wrapper>
 		);
 	}
 

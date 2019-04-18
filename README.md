@@ -1,6 +1,10 @@
-# Todo List
+# Extendable List
 
 *A very basic list that you can add and remove items from.*
+
+## Easily add data fields
+Just chhange a few lines of code to easily create custom inputs to this from.
+Open the [index.js](#~/frontend/pages/HomePage/index.js) file and edit the form area to get started.
 
 ## Things to customize
 - 💅 Change the background, and text color

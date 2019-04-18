@@ -1,8 +1,7 @@
 {
   "style": {
-    "backgroundColor": "#b56fd5",
-    "foregroundColor": "#ffffff",
-    "textColor": "#ffffff"
+    "backgroundColor": "#7fc58a",
+    "textColor": "#000000"
   },
   "@@editor": [
     {

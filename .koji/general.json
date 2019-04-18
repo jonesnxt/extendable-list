@@ -1,7 +1,6 @@
 {
   "general": {
-    "headerText": "Grocery list",
-    "placeholder": "Add an item..."
+    "headerText": "Extendable List"
   },
   "@@editor": [
     {
@@ -13,10 +12,6 @@
         {
           "key": "headerText",
           "name": "Header Text"
-        },
-        {
-          "key": "placeholder",
-          "name": "Placeholder"
         }
       ]
     }
